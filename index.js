@@ -37,10 +37,15 @@ var ase = require("ase-utils");
 
     result.colors.forEach((color, index) => {
       if (color) {
+        var colorname = "Color " + index;
+        if (color[2])
+        {
+          colorname = color[2];
+        }
         let rgb = convert.hsv.rgb(color[0]);
         let asergb = [rgb[0] / 255.0, rgb[1] / 255.0, rgb[2] / 255.0]; // ase format needs rgb values from 0 to 1
         colors.push({
-          name: "Color " + index,
+          name: colorname,
           model: "RGB",
           color: asergb,
           type: "global",
